@@ -13,9 +13,9 @@
     <!-- TODO #3 - Use the same list display from search.html -->
     <h3 th:text="${jobs.size()} + ' Result(s)'"></h3>
     <table class="job-listing" th:each="job : ${jobs}">
-        <tr th:each= "listing : ${job}">
-            <td th:text="${listing.key.toUpperCase()}"></td>
-            <td th:text="${listing.value}"></td>
+        <tr th:each= "listing : ${job.keySet()}">
+            <td th:text="${#strings.capitalizeWords(listing)}"></td>
+            <td th:text="${job.get(listing)}"></td>
         </tr>
     </table>
 </div>
